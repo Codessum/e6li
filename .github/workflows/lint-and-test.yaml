@@ -13,8 +13,8 @@ jobs:
       - name: Install Dependencies
         run: yarn install --immutable
       - name: Lint
-        run: yarn lint
+        run: yarn run lint
       - name: Check
-        run: yarn check
+        run: yarn run check
       - name: Test
-        run: yarn test
+        run: yarn run test
