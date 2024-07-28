@@ -17,11 +17,11 @@ jobs:
         run: |
           corepack enable
           yarn install --immutable
-      - name: Install Playwright Browsers
-        run: yarn dlx playwright install --with-deps
       - name: Lint
         run: yarn run lint
       - name: Check
         run: yarn run check
+      - name: Install Playwright Browsers
+        run: yarn dlx playwright install --with-deps
       - name: Test
         run: yarn run test
