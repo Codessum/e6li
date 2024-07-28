@@ -3,11 +3,16 @@ on: [push]
 jobs:
   lint-and-test:
     runs-on: ubuntu-latest
+    env:
+      # See https://github.com/actions/setup-node/issues/531#issuecomment-1819151412
+      SKIP_YARN_COREPACK_CHECK: true 
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: yarn
+          cache-dependency-path: yarn.lock
       - name: Install Dependencies
         run: yarn install --immutable
       - name: Install Playwright Browsers
